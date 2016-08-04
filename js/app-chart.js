@@ -61,25 +61,46 @@
         document.getElementById('progress').innerHTML = 'You have completed '+totalUpVotes+' of 15 votes in this survey.' // Provide survey progress message to user
       }
     }
+
     // set condition to present image voting results to user AFTER he/she votes 15 times
     if (totalUpVotes > 14 && totalUpVotes < 16) {
-    // dynamically build table with product images and total up-votes
-      var table = document.getElementById('product-votes');
       for (var index = 0; index < imgOptions.length; index++) {
-      // establish variable to enable run through full array of images
-      var currentImage = imgOptions[index];
-      var imageRow = document.createElement('tr'); // create row
-      var imageNameCell = document.createElement('td'); // create data cell for image name
-      imageNameCell.innerText = currentImage.name; // insert image name into data cell
-      imageRow.appendChild(imageNameCell); // add image name data cell onto row
-      // create row data cell for total up-votes for product image
-      var totalUpVotesCell = document.createElement('td'); // create data cell for up-votes
-      totalUpVotesCell.innerText = currentImage.upVotes;
-      console.log(totalUpVotesCell.innerText);
-      imageRow.appendChild(totalUpVotesCell);
-      // append new row onto table
-      table.appendChild(imageRow);
+    var currentImage = imgOptions[index];
+    var chart; // initiate global chart variable
+    var imgPool = [ // initiate chart data set
+        // { label: imgOptions[index].name,  y: currentImage.upVotes },
+        { label: 'Banana', y: 4 },
+        // { label: 'Boots', y: currentImage.upVotes },
+        // { label: 'Chair',  y: currentImage.upVotes },
+        // { label: 'Cthulhu',  y: currentImage.upVotes },
+        // { label: 'Dragon', y: currentImage.upVotes },
+        // { label: 'Pen', y: currentImage.upVotes },
+        // { label: 'Scissors', y: currentImage.upVotes },
+        // { label: 'Shark', y: currentImage.upVotes },
+        // { label: 'Sweep', y: currentImage.upVotes },
+        // { label: 'Unicorn', y: currentImage.upVotes },
+        // { label: 'USB', y: currentImage.upVotes },
+        // { label: 'Water_Can', y: currentImage.upVotes },
+        // { label: 'Wine_Glass', y: currentImage.upVotes },
+      ];
+
+    function initializeChart() { // object constructor to build chart
+    var chartProperties = {
+      title: {
+        text: "Customer Preferences for BusMall Products"
+      },
+      data: [
+      {
+        type: "column", // select type of chart to render
+        dataPoints: imgPool
       }
+      ]
+    };
+    chart = new CanvasJS.Chart("chart-container", chartProperties);
+    chart.render(); // draws chart
+  };
+    window.addEventListener("load", initializeChart); // call function 'initializeChart'
     }
+  }
     getThreeImages(); // after each image vote click, call function 'getThreeImages'
   };
