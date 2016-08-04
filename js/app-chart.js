@@ -6,7 +6,7 @@ var imgTrx = function(name, source) {
 };
 var imgUpVotes = 0; // initiate global var 'imgUpVotes' to track total upVotes for each image
 var totalUpVotes = 0;
-var imgPool = [];
+var imgPool = []; // initiate global var array 'imgPool' for function 'initializeChart'
 
 // create array of image & source sets
 var imgOptions = [
@@ -44,7 +44,8 @@ function getThreeImages() { // function to present 3 images to user for review a
 }
 getThreeImages(); // call function 'getThreeImages'
 
-function recordClick(event) { // image click recorder function; triggered by event listener
+// image click recorder function; triggered by event listener
+function recordClick(event) {
   var clickedImage = event.target;
   console.log(clickedImage);
   var clickedImageSource = clickedImage.src;
@@ -62,39 +63,17 @@ function recordClick(event) { // image click recorder function; triggered by eve
     }
   }
 
-  // set condition to present image voting results to user AFTER he/she votes 15 times
-
+// set condition to present image voting results to user AFTER he/she votes 15 times
 if (totalUpVotes == 15) {
-    console.log("WORKED");
     for (var i = 0; i < imgOptions.length; i++) {
       var currentImage = imgOptions[i];
       var chart; // initiate global chart variable
-      
-      imgPool.push({label: imgOptions[i].name, y: imgOptions[i].upVotes});
-
-       // initiate chart data set
-        // { label: imgOptions[i].name,  y: currentImage.upVotes },
-        // { label: 'Banana', y: currentImage[i].upVotes },
-        // { label: 'Boots', y: currentImage.upVotes },
-        // { label: 'Chair',  y: currentImage.upVotes },
-        // { label: 'Cthulhu',  y: currentImage.upVotes },
-        // { label: 'Dragon', y: currentImage.upVotes },
-        // { label: 'Pen', y: currentImage.upVotes },
-        // { label: 'Scissors', y: currentImage.upVotes },
-        // { label: 'Shark', y: currentImage.upVotes },
-        // { label: 'Sweep', y: currentImage.upVotes },
-        // { label: 'Unicorn', y: currentImage.upVotes },
-        // { label: 'USB', y: currentImage.upVotes },
-        // { label: 'Water_Can', y: currentImage.upVotes },
-        // { label: 'Wine_Glass', y: currentImage.upVotes },
-      // ];
+      imgPool.push({label: imgOptions[i].name, y: imgOptions[i].upVotes}); // cycle through imgOptions array to push label names and associated upVotes into imgPool array
     }
-    initializeChart();
-
-  }
-  getThreeImages(); // after each image vote click, call function 'getThreeImages'
-} // end of recordClick
-
+initializeChart(); // call function 'initializeChart'
+}
+getThreeImages(); // after each image vote click, call function 'getThreeImages'
+} // end of recordClick function
 
 function initializeChart() { // object constructor to build chart
   var chartProperties = {
@@ -109,5 +88,3 @@ function initializeChart() { // object constructor to build chart
   chart = new CanvasJS.Chart("chart-container", chartProperties);
   chart.render(); // draws chart
 }
-
-// window.addEventListener("load", initializeChart); // call function 'initializeChart'
