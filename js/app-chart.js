@@ -71,6 +71,7 @@ if (totalUpVotes == 15) {
       imgPool.push({label: imgOptions[i].name, y: imgOptions[i].upVotes}); // cycle through imgOptions array to push label names and associated upVotes into imgPool array
     }
 initializeChart(); // call function 'initializeChart'
+chartElementTrans();
 }
 getThreeImages(); // after each image vote click, call function 'getThreeImages'
 } // end of recordClick function
@@ -88,3 +89,15 @@ function initializeChart() { // object constructor to build chart
   chart = new CanvasJS.Chart("chart-container", chartProperties);
   chart.render(); // draws chart
 }
+
+function progressElementTrans() {
+  document.getElementById('progress').setAttribute("class", "progress-transitions");
+}
+
+function chartElementTrans() {
+  document.getElementById('chart-container').setAttribute("class", "chart-transitions");
+}
+
+var imgContainer = document.getElementById("image-container");
+
+imgContainer.addEventListener("click", progressElementTrans);
