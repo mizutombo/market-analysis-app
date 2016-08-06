@@ -34,6 +34,7 @@
     display: flex;
     margin: 0 125px;
     width: 1200px;
+    opacity: 0;
   }
   #progress {
     width: 400px;
@@ -46,6 +47,7 @@
     font-weight: bold;
     font-style: oblique;
     color: red;
+    opacity: 0;
   }
   table {
     border: 2px solid blue;
@@ -76,3 +78,14 @@
     text-align: center;
     border: 1px dotted black;
   }
+
+#progress.progress-transitions {
+  background-color: #95cd53;
+  opacity: 1;
+  transition: all 1s;
+}
+
+#chart-container.chart-transitions {
+  opacity: 1;
+  transition: 1.25s;
+}
