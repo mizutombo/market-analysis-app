@@ -5,7 +5,7 @@ var imgTrx = function(name, source) {
   this.upVotes = 0;
 };
 var imgUpVotes = 0; // initiate global var 'imgUpVotes' to track total upVotes for each image
-var totalUpVotes = 0;
+var totalUpVotes = 0; // initiate global var 'totalUpVotes' to track cumulative total votes
 var imgPool = []; // initiate global var array 'imgPool' for function 'initializeChart'
 
 // create array of image & source sets
