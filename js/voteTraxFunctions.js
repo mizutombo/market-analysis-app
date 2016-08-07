@@ -20,20 +20,20 @@ var imgOptions = [
 
 function initializeImgToTrack() {
   if (localStorage.getItem('images') == null) {
-    imgToTrack.push(new voteTracker('Bag', 'img/bag.jpg'));
-    imgToTrack.push(new voteTracker('Banana', 'img/banana.jpg'));
-    imgToTrack.push(new voteTracker('Boots', 'img/boots.jpg'));
-    imgToTrack.push(new voteTracker('Chair', 'img/chair.jpg'));
-    imgToTrack.push(new voteTracker('Cthulhu', 'img/cthulhu.jpg'));
-    imgToTrack.push(new voteTracker('Dragon', 'img/dragon.jpg'));
-    imgToTrack.push(new voteTracker('Pen', 'img/pen.jpg'));
-    imgToTrack.push(new voteTracker('Scissors', 'img/scissors.jpg'));
-    imgToTrack.push(new voteTracker('Shark', 'img/shark.jpg'));
-    imgToTrack.push(new voteTracker('Sweep', 'img/sweep.jpg'));
-    imgToTrack.push(new voteTracker('Unicorn', 'img/unicorn.jpg'));
-    imgToTrack.push(new voteTracker('USB', 'img/usb.jpg'));
-    imgToTrack.push(new voteTracker('Water_Can', 'img/water_can.jpg'));
-    imgToTrack.push(new voteTracker('Wine_Glass', 'img/wine_glass.jpg'));
+    imgToTrack.push(new VoteTracker('Bag', 'img/bag.jpg'));
+    imgToTrack.push(new VoteTracker('Banana', 'img/banana.jpg'));
+    imgToTrack.push(new VoteTracker('Boots', 'img/boots.jpg'));
+    imgToTrack.push(new VoteTracker('Chair', 'img/chair.jpg'));
+    imgToTrack.push(new VoteTracker('Cthulhu', 'img/cthulhu.jpg'));
+    imgToTrack.push(new VoteTracker('Dragon', 'img/dragon.jpg'));
+    imgToTrack.push(new VoteTracker('Pen', 'img/pen.jpg'));
+    imgToTrack.push(new VoteTracker('Scissors', 'img/scissors.jpg'));
+    imgToTrack.push(new VoteTracker('Shark', 'img/shark.jpg'));
+    imgToTrack.push(new VoteTracker('Sweep', 'img/sweep.jpg'));
+    imgToTrack.push(new VoteTracker('Unicorn', 'img/unicorn.jpg'));
+    imgToTrack.push(new VoteTracker('USB', 'img/usb.jpg'));
+    imgToTrack.push(new VoteTracker('Water_Can', 'img/water_can.jpg'));
+    imgToTrack.push(new VoteTracker('Wine_Glass', 'img/wine_glass.jpg'));
   }
   else {
     var storedImages = JSON.parse(localStorage.getItem('images'));
@@ -49,7 +49,7 @@ function initializeImgToTrack() {
 function getThreeImages() {
   if (userTotalUpVotes <= 15) { // stop presenting new images to user after 15 votes
     pickedImages = []; // empty this memory array to enable tracking of 3 new images
-    var imgContainer = document.getElementById('image-container');
+    var imgContainer = document.getElementById('image-container'); // set up local variable 'imgContainer' to contain product images for user viewing
     imgContainer.innerHTML = '';
     for (var imageID = 1; imageID <= 3; imageID++) {
       do { // get random index value for image
@@ -97,7 +97,7 @@ if (userTotalUpVotes == 15) {
       imgPool.push({label: imgOptions[i].name, y: imgOptions[i].upVotes}); // cycle through imgOptions array to push label names and associated upVotes into imgPool array
     }
 initializeChart(); // call function 'initializeChart'
-chartElementTrans();
+chartElementTrans(); // trigger function 'chartElementTrans' to fade in chart
 }
 getThreeImages(); // after each image vote click, call function 'getThreeImages' to display 3 new images to user
 } // end of recordClick function
@@ -105,25 +105,25 @@ getThreeImages(); // after each image vote click, call function 'getThreeImages'
 function initializeChart() { // object constructor to build chart
   var chartProperties = {
     title: {
-      text: "Customer Preferences for BusMall Products"
+      text: 'Customer Preferences for BusMall Products'
     },
     data: [{
-      type: "column", // select type of chart to render
+      type: 'column', // select type of chart to render
       dataPoints: imgPool
     }]
   };
-  chart = new CanvasJS.Chart("chart-container", chartProperties);
+  chart = new CanvasJS.Chart('chart-container', chartProperties);
   chart.render(); // draws chart
 }
 
-function progressElementTrans() {
-  document.getElementById('progress').setAttribute("class", "progress-transitions");
+function progressElementTrans() { // function to fade in progress report message box
+  document.getElementById('progress').setAttribute('class', 'progress-transitions');
 }
 
-function chartElementTrans() {
-  document.getElementById('chart-container').setAttribute("class", "chart-transitions");
+function chartElementTrans() { // function to fade in chart
+  document.getElementById('chart-container').setAttribute("class", 'chart-transitions');
 }
 
-var imgContainer = document.getElementById("image-container");
+var imgContainer = document.getElementById('image-container');
 
-imgContainer.addEventListener("click", progressElementTrans);
+imgContainer.addEventListener('click', progressElementTrans); // vote 'click' on image triggers function 'progressElementTrans'
