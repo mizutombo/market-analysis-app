@@ -1,34 +1,49 @@
 
+  body {
+    background-color: #DCFCFB;
+  }
+  h1 {
+    font-family: 'Reem Kufi', sans-serif;
+    font-size: 34px;
+    text-decoration: underline;
+    color: red;
+    text-align: center;
+  }
   #intro {
-    width: 760px;
-    margin: 20px auto 20px auto;
-    border: 3px solid purple;
-    padding: 30px 55px 30px 55px;
+    width: 1400px;
+    margin: 20px auto 10px auto;
+    border: 6px solid blue;
+    padding: 30px 65px 20px 65px;
+    background-color: white;
     text-align: left;
     font-family: 'Reem Kufi', sans-serif;
-    font-size: 28px;
-    color: darkblue;
-    line-height: 32px;
+    font-size: 32px;
+    color: #00138C;
+    line-height: 34px;
   }
   #image-container {
     display: flex;
+    max-width: 1100px;
     justify-content: center;
-    margin: 10px 200px;
+    margin: 10px auto;
     border: 6px solid red;
     padding: 20px 20px;
     background-color: aqua;
   }
   img {
-    max-width: 310px;
-    width: auto;
-    height: auto;
-    margin: auto 7px;
-    border: 3px solid darkblue;
+    width: 310px;
+    height: 310px;
+    margin: auto 20px;
+    padding: 5px 5px;
+    border: 6px solid darkblue;
   }
   img:hover {
     width: 310px;
-    margin: auto 7px;
-    border: 5px solid red;
+    height: 310px;
+    margin: auto 20px;
+    padding: 5px 5px;
+    border: 8px solid magenta;
+    border-radius: 10px;
   }
   #chart-container {
     display: flex;
@@ -37,17 +52,30 @@
     opacity: 0;
   }
   #progress {
-    width: 400px;
+    width: 600px;
     margin: 20px auto 20px auto;
-    border: 3px solid purple;
+    border: 6px solid blue;
     padding: 30px 55px 30px 55px;
     text-align: center;
     font-family: 'Reem Kufi', sans-serif;
-    font-size: 20px;
+    font-size: 28px;
     font-weight: bold;
     font-style: oblique;
-    color: red;
+    color: darkblue;
     opacity: 0;
+  }
+  #reset {
+    display: block;
+    with: 50px;
+    margin: 20px auto 20px auto;
+    padding: 5px 10px 5px 10px;
+    font-size: 22px;
+    font-weight: bold;
+    color: black;
+    border: 4px solid red;
+    border-radius: 8px;
+    background-color: #FBE6FC;
+    text-align: center;
   }
   table {
     border: 2px solid blue;
@@ -80,12 +108,13 @@
   }
 
 #progress.progress-transitions {
-  background-color: #95cd53;
+  background-color: #C5F7A8;
+  border: 8px solid green;
   opacity: 1;
-  transition: all 1s;
+  transition: all 1.5s;
 }
 
 #chart-container.chart-transitions {
   opacity: 1;
-  transition: 1.25s;
+  transition: 1.5s;
 }

@@ -83,7 +83,7 @@ function recordClick(event) {
         document.getElementById('progress').innerHTML = 'You have completed ' + userTotalUpVotes + ' of 15 votes in this survey.'; // provide survey progress message to user, up to 15 votes
       }
       else {
-        document.getElementById('progress').innerHTML = 'You have completed 15 of 15 votes in this survey. The graph below represents your product vote results.'; // provide survey final results message to user
+        document.getElementById('progress').innerHTML = 'You have completed 15 of 15 votes in this survey.<br/>The graph below represents your product vote results.'; // provide survey final results message to user
       }
     }
   }
