@@ -13,4 +13,5 @@
 * 8/5/2016 // coded JS files voteTraxEvents.js, voteTraxFunctions.js, and voteTraxObjects.js ... revised HTML code in index-chart.html to link to new JS files <br/>
 * 8/6/2016 // ongoing effort to debug code to enable assignment N12 to run and display correctly ... ACP to class12 to set up for pair-programming in assignment N13 <br/>
 * 8/6/2016 // merged initial assignment N13 CSS transitions from pair-programming exercise, using assignment N11 files, into style.css & voteTraxFunctions.js files ... ACP to class12 <br/>
-* 8/6/2016 // 
+* 8/7/2016 // installed reset button, but still need function link ... revised JS code to enable webpage to stop presenting images and to stop counting votes upon user reaching 15 votes; verified functionality ... initiated JS code variable to track total cumulative image votes for Marketing usage, but still need to build associated tracking code ... ACP to class12 <br/>
+* 8/7/2016 //
