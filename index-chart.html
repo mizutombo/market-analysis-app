@@ -12,13 +12,21 @@
     Upon completion of your voting, you will be able to review the overall results of your favorite product votes.
   </p>
 
+  <p id='progress'></p>
+
+  <input id='reset' type='button' value='Reset Product Survey' onclick='refreshPage()'>
+
+  <script>
+    function refreshPage() {
+      window.location.reload();
+    }
+  </script>
+
   <div id='image-container'>
     <div><img id='pix1'></div>
     <div><img id='pix2'></div>
     <div><img id='pix3'></div>
   </div>
-
-  <p id='progress'></p>
 
   <div id="chart-container"></div>
   <script type='text/javascript' src='js/canvasjs.min.js'></script>

@@ -9,4 +9,4 @@
 * 8/2/2016 // repaired JS code to enable 15 votes to be completed before presenting voting results to user in a table format ... rev'd CSS code to ensure aspect ratio of images ... ACP current status before submitting assignment <br/>
 * 8/3/2016 // created branch class11 ... ACP to class11 <br/>
 * 8/3/2016 // created JS & HTML code in new files 'app-chart.js' and 'index-chart.html' to enable BusMall survey user votes to be presented via CanvasJS generated bar chart ... received assistance from Jon Walz during pair-programming to debug JS code to enable chart code to run correctly ... rev'd CSS code to improve appearance of chart ... ACP to class11 <br/>
-*
+* 8/8/2016 // revised HTML and CSS code to implement 'reset button' for survey ... ACP to class11 for assignment resubmittal <br/>
