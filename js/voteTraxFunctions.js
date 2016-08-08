@@ -80,7 +80,8 @@ function recordClick(event) {
       // mktgImgTotalUpvotes += imgOptions[index].upVotes; // accumulate total up-votes for each image for Marketing usage
       // console.log('mktgImgTotalUpvotes: ' + );
 
-      localStorage.setItem('images', JSON.stringify(imgOptions[index].name, imgOptions[index].upVotes));
+      localStorage.setItem('image-name', imgOptions[index].name);
+      localStorage.setItem('image-votes', imgOptions[index].upVotes);
       localStorage.setItem('progress-tally', userTotalUpVotes);
 
       if (userTotalUpVotes < 15) { // limit user's votes to 15 votes for survey
