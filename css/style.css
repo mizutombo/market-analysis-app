@@ -36,20 +36,29 @@
     padding: 20px 20px;
     background-color: aqua;
   }
+  #image-container.image-transitions {
+    opacity: 1;
+    transition: 1s;
+  }
+  img.image-transitions {
+    opacity: 1;
+    transition: 1s;
+  }
   img {
     width: 310px;
     height: 310px;
     margin: auto 20px;
     padding: 5px 5px;
     border: 6px solid darkblue;
+    transition: 1.2s;
   }
   img:hover {
     width: 310px;
     height: 310px;
     margin: auto 20px;
     padding: 5px 5px;
-    border: 8px solid magenta;
-    border-radius: 10px;
+    border: 10px solid magenta;
+    border-radius: 25px;
   }
   #progress {
     width: 600px;
@@ -60,9 +69,16 @@
     font-family: 'Reem Kufi', sans-serif;
     font-size: 28px;
     font-weight: bolder;
-    font-style: oblique;
-    color: darkred;
+    font-style: italic;;
+    color: black;
     opacity: 0;
+  }
+  #progress.progress-transitions {
+    background-color: aqua;
+    border: 8px solid blue;
+    border-radius: 12px;
+    opacity: 1;
+    transition: all 1.25s;
   }
   #reset {
     display: block;
@@ -87,6 +103,10 @@
     padding: 0 auto;
     width: 1400px;
     opacity: 0;
+  }
+  #chart-container.chart-transitions {
+    opacity: 1;
+    transition: 1.2s;
   }
   #bottom-spacer {
     height: 15px;
@@ -119,18 +139,4 @@
     color: red;
     text-align: center;
     border: 1px dotted black;
-  }
-  #progress.progress-transitions {
-    background-color: aqua;
-    border: 8px solid green;
-    opacity: 1;
-    transition: all 1.5s;
-  }
-  img.image-transitions {
-    opacity: 0;
-    transition: 5s;
-  }
-  #chart-container.chart-transitions {
-    opacity: 1;
-    transition: 1.5s;
   }

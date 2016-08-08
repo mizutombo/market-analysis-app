@@ -1,5 +1,5 @@
 
-var imgToTrack = []; // initialize variable array to track images w/ their sources
+// var imgToTrack = []; // initialize variable array to track images w/ their sources
 
 var ImgTrx = function (name, source) { // constructor object
   this.name = name;

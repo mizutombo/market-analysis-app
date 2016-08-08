@@ -17,33 +17,33 @@ var imgOptions = [
   new ImgTrx('Wine_Glass', 'img/wine_glass.jpg'),
 ];
 
-function initializeImgToTrack() {
-  if (localStorage.getItem('images') == null) {
-    imgToTrack.push(new VoteTracker('Bag', 'img/bag.jpg'));
-    imgToTrack.push(new VoteTracker('Banana', 'img/banana.jpg'));
-    imgToTrack.push(new VoteTracker('Boots', 'img/boots.jpg'));
-    imgToTrack.push(new VoteTracker('Chair', 'img/chair.jpg'));
-    imgToTrack.push(new VoteTracker('Cthulhu', 'img/cthulhu.jpg'));
-    imgToTrack.push(new VoteTracker('Dragon', 'img/dragon.jpg'));
-    imgToTrack.push(new VoteTracker('Pen', 'img/pen.jpg'));
-    imgToTrack.push(new VoteTracker('Scissors', 'img/scissors.jpg'));
-    imgToTrack.push(new VoteTracker('Shark', 'img/shark.jpg'));
-    imgToTrack.push(new VoteTracker('Sweep', 'img/sweep.jpg'));
-    imgToTrack.push(new VoteTracker('Unicorn', 'img/unicorn.jpg'));
-    imgToTrack.push(new VoteTracker('USB', 'img/usb.jpg'));
-    imgToTrack.push(new VoteTracker('Water_Can', 'img/water_can.jpg'));
-    imgToTrack.push(new VoteTracker('Wine_Glass', 'img/wine_glass.jpg'));
-  }
-  else {
-    var storedImages = JSON.parse(localStorage.getItem('images'));
-    for (var index = 0; index < storedImages.length; index++) {
-      var image = storedImages[index];
-      var tracker = new VoteTracker(image.name, image.imgSource);
-      tracker.upVotes = image.upVotes;
-      imgToTrack.push(tracker);
-    }
-  }
-}
+// function initializeImgToTrack() {
+//   if (localStorage.getItem('images') == null) {
+//     imgToTrack.push(new VoteTracker('Bag', 'img/bag.jpg'));
+//     imgToTrack.push(new VoteTracker('Banana', 'img/banana.jpg'));
+//     imgToTrack.push(new VoteTracker('Boots', 'img/boots.jpg'));
+//     imgToTrack.push(new VoteTracker('Chair', 'img/chair.jpg'));
+//     imgToTrack.push(new VoteTracker('Cthulhu', 'img/cthulhu.jpg'));
+//     imgToTrack.push(new VoteTracker('Dragon', 'img/dragon.jpg'));
+//     imgToTrack.push(new VoteTracker('Pen', 'img/pen.jpg'));
+//     imgToTrack.push(new VoteTracker('Scissors', 'img/scissors.jpg'));
+//     imgToTrack.push(new VoteTracker('Shark', 'img/shark.jpg'));
+//     imgToTrack.push(new VoteTracker('Sweep', 'img/sweep.jpg'));
+//     imgToTrack.push(new VoteTracker('Unicorn', 'img/unicorn.jpg'));
+//     imgToTrack.push(new VoteTracker('USB', 'img/usb.jpg'));
+//     imgToTrack.push(new VoteTracker('Water_Can', 'img/water_can.jpg'));
+//     imgToTrack.push(new VoteTracker('Wine_Glass', 'img/wine_glass.jpg'));
+//   }
+//   else {
+//     var storedImages = JSON.parse(localStorage.getItem('images'));
+//     for (var index = 0; index < storedImages.length; index++) {
+//       var image = storedImages[index];
+//       var tracker = new VoteTracker(image.name, image.imgSource);
+//       tracker.upVotes = image.upVotes;
+//       imgToTrack.push(tracker);
+//     }
+//   }
+// }
 
 function getThreeImages() {
   if (userTotalUpVotes <= 15) { // stop presenting new images to user after 15 votes
@@ -80,12 +80,15 @@ function recordClick(event) {
       // mktgImgTotalUpvotes += imgOptions[index].upVotes; // accumulate total up-votes for each image for Marketing usage
       // console.log('mktgImgTotalUpvotes: ' + );
 
-      localStorage.setItem('images', imgOptions[index].name, imgOptions[index].upVotes);
-      localStorage.setItem('progress', userTotalUpVotes);
+      localStorage.setItem('images', JSON.stringify(imgOptions[index].name, imgOptions[index].upVotes));
+      localStorage.setItem('progress-tally', userTotalUpVotes);
 
       if (userTotalUpVotes < 15) { // limit user's votes to 15 votes for survey
-        document.getElementById('progress').innerHTML = 'You have completed ' + userTotalUpVotes + ' of 15 votes in this survey.'; // provide survey progress message to user, up to 15 votes
+        document.getElementById('progress').innerHTML = 'You have completed ' + localStorage.getItem('progress-tally') + ' of 15 votes in this survey.'; // provide survey progress message to user, up to 15 votes
       }
+      // if (userTotalUpVotes < 15) { // limit user's votes to 15 votes for survey
+      //   document.getElementById('progress').innerHTML = 'You have completed ' + userTotalUpVotes + ' of 15 votes in this survey.'; // provide survey progress message to user, up to 15 votes
+      // }
       else {
         document.getElementById('progress').innerHTML = 'You have completed 15 of 15 votes in this survey.<br/>The graph below represents your product vote results.'; // provide survey final results message to user
       }
