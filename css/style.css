@@ -19,7 +19,7 @@
     width: 1400px;
     margin: 20px auto 10px auto;
     border: 6px solid blue;
-    padding: 30px 65px 20px 65px;
+    padding: 20px 65px 20px 65px;
     background-color: white;
     text-align: left;
     font-family: 'Reem Kufi', sans-serif;
@@ -51,24 +51,17 @@
     border: 8px solid magenta;
     border-radius: 10px;
   }
-  #chart-container {
-    display: flex;
-    margin: 0 auto;
-    padding: 0 auto;
-    width: 1400px;
-    opacity: 0;
-  }
   #progress {
     width: 600px;
-    margin: 20px auto 20px auto;
+    margin: 15px auto 15px auto;
     border: 6px solid blue;
-    padding: 30px 55px 30px 55px;
+    padding: 15px 55px 15px 55px;
     text-align: center;
     font-family: 'Reem Kufi', sans-serif;
     font-size: 28px;
     font-weight: bolder;
     font-style: oblique;
-    color: black;
+    color: darkred;
     opacity: 0;
   }
   #reset {
@@ -83,6 +76,20 @@
     border-radius: 8px;
     background-color: #FBE6FC;
     text-align: center;
+  }
+  #reset:hover {
+    border: 6px solid blue;
+    background-color: yellow;
+  }
+  #chart-container {
+    display: flex;
+    margin: 0 auto;
+    padding: 0 auto;
+    width: 1400px;
+    opacity: 0;
+  }
+  #bottom-spacer {
+    height: 15px;
   }
   table {
     border: 2px solid blue;
@@ -113,13 +120,17 @@
     text-align: center;
     border: 1px dotted black;
   }
-#progress.progress-transitions {
-  background-color: aqua;
-  border: 8px solid green;
-  opacity: 1;
-  transition: all 1.5s;
-}
-#chart-container.chart-transitions {
-  opacity: 1;
-  transition: 1.5s;
-}
+  #progress.progress-transitions {
+    background-color: aqua;
+    border: 8px solid green;
+    opacity: 1;
+    transition: all 1.5s;
+  }
+  img.image-transitions {
+    opacity: 0;
+    transition: 5s;
+  }
+  #chart-container.chart-transitions {
+    opacity: 1;
+    transition: 1.5s;
+  }

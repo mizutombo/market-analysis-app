@@ -1,4 +1,3 @@
-var imgToTrack = [];
 
 // create array of image & source sets
 var imgOptions = [
@@ -72,13 +71,18 @@ function recordClick(event) {
     if (clickedImageSource.indexOf(imgOptions[index].imgSource) >= 0) {
       imgOptions[index].upVotes++; // add 1 up-vote for user-clicked image
       userTotalUpVotes++; // add 1 up-vote for survey user's total cumulative up-votes
-      // console.log('userTotalUpVotes: ' + userTotalUpVotes);
-      // console.log('clicked item: ' + imgOptions[index].name);
-      // console.log('imgOptions[index]: ' + imgOptions[index]);
+      console.log('userTotalUpVotes: ' + userTotalUpVotes);
+      console.log('clicked item: ' + imgOptions[index].name);
+      console.log('imgOptions[index]: ' + imgOptions[index]);
       userImgUpVotes += imgOptions[index].upVotes; // accumulate user up-votes for each image
-      // console.log('userImgUpVotes: ' + imgOptions[index].upVotes);
-      localStorage.setItem('images', imgOptions[index].name, userImgUpVotes);
+      console.log('userImgUpVotes: ' + imgOptions[index].upVotes);
+
+      // mktgImgTotalUpvotes += imgOptions[index].upVotes; // accumulate total up-votes for each image for Marketing usage
+      // console.log('mktgImgTotalUpvotes: ' + );
+
+      localStorage.setItem('images', imgOptions[index].name, imgOptions[index].upVotes);
       localStorage.setItem('progress', userTotalUpVotes);
+
       if (userTotalUpVotes < 15) { // limit user's votes to 15 votes for survey
         document.getElementById('progress').innerHTML = 'You have completed ' + userTotalUpVotes + ' of 15 votes in this survey.'; // provide survey progress message to user, up to 15 votes
       }
@@ -97,10 +101,10 @@ if (userTotalUpVotes == 15) {
       imgPool.push({label: imgOptions[i].name, y: imgOptions[i].upVotes}); // cycle through imgOptions array to push label names and associated upVotes into imgPool array
     }
 initializeChart(); // call function 'initializeChart'
-chartElementTrans(); // trigger function 'chartElementTrans' to fade in chart
+chartElementTrans(); // triggers function 'chartElementTrans' to fade in chart when user reaches 15 votes
 }
 getThreeImages(); // after each image vote click, call function 'getThreeImages' to display 3 new images to user
-} // end of recordClick function
+} // end of 'recordClick' function
 
 function initializeChart() { // object constructor to build chart
   var chartProperties = {
@@ -119,11 +123,19 @@ function initializeChart() { // object constructor to build chart
 function progressElementTrans() { // function to fade in progress report message box
   document.getElementById('progress').setAttribute('class', 'progress-transitions');
 }
-
-function chartElementTrans() { // function to fade in chart
-  document.getElementById('chart-container').setAttribute("class", 'chart-transitions');
+function imageElementTrans() {
+  document.getElementById('image-container').setAttribute('class', 'image-transitions');
 }
 
-var imgContainer = document.getElementById('image-container');
+// function imageElementTrans(event) {
+//   event.target.setAttribute('class', 'image-transitions');
+// }
 
-imgContainer.addEventListener('click', progressElementTrans); // vote 'click' on image triggers function 'progressElementTrans'
+function chartElementTrans() { // function to fade in chart
+  document.getElementById('chart-container').setAttribute('class', 'chart-transitions');
+}
+
+var imgContainer = document.getElementById('image-container'); // global variable
+
+imgContainer.addEventListener('click', progressElementTrans); // vote 'click' on image within image container triggers transition function 'progressElementTrans'
+imgContainer.addEventListener('click', imageElementTrans); // vote 'click' on image within image container triggers function 'imageElementTrans' to fade in new images

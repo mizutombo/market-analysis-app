@@ -10,6 +10,9 @@ var ImgTrx = function (name, source) { // constructor object
 var userImgUpVotes = 0; // initiate global var 'userImgUpVotes' to track survey user's total upVotes for each image
 var userTotalUpVotes = 0; // initiate global var 'userTotalUpVotes' to track CUMULATIVE total votes for survey user
 var mktgImgTotalUpvotes = 0; // initiate global var 'mktgImgTotalUpvotes' to track CUMULATIVE total survey votes for each image
+
+var mktgImgTotalPool = [];
+
 var imgPool = []; // initiate global var array 'imgPool' for function 'initializeChart'
 var pickedImages = []; // this is memory array; tracks images that have been shown to the user
 
