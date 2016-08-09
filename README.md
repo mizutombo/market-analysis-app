@@ -17,4 +17,4 @@
 * 8/7/2016 // added header title BusMall Customer Survey ... adjusted CSS code to improve overall appearance and to format styling of reset button ... ACP to class12 <br/>
 * 8/7/2016 // enabled and validated functionality of reset button ... additional revs to CSS code to improve appearance ... ACP to class12 <br/>
 * 8/7/2016 // implemented further CSS improvements to appearance of transitions ... continuing to debug local storage functionality and image transitions ... ACP to class12 <br/>
- 
+* 8/8/2016 // debugged JS code and CSS code to enable functionality of transitions ... ACP to class12 and to class13 <br/> 
