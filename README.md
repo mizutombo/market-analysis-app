@@ -12,3 +12,9 @@
 * 8/5/2016 // created branch class12 ... ACP to class12 <br/>
 * 8/5/2016 // coded JS files voteTraxEvents.js, voteTraxFunctions.js, and voteTraxObjects.js ... revised HTML code in index-chart.html to link to new JS files <br/>
 * 8/6/2016 // ongoing effort to debug code to enable assignment N12 to run and display correctly ... ACP to class12 to set up for pair-programming in assignment N13 <br/>
+* 8/6/2016 // merged initial assignment N13 CSS transitions from pair-programming exercise, using assignment N11 files, into style.css & voteTraxFunctions.js files ... ACP to class12 <br/>
+* 8/7/2016 // installed reset button, but still need function link ... revised JS code to enable webpage to stop presenting images and to stop counting votes upon user reaching 15 votes; verified functionality ... initiated JS code variable to track total cumulative image votes for Marketing usage, but still need to build associated tracking code ... ACP to class12 <br/>
+* 8/7/2016 // added header title BusMall Customer Survey ... adjusted CSS code to improve overall appearance and to format styling of reset button ... ACP to class12 <br/>
+* 8/7/2016 // enabled and validated functionality of reset button ... additional revs to CSS code to improve appearance ... ACP to class12 <br/>
+* 8/7/2016 // implemented further CSS improvements to appearance of transitions ... continuing to debug local storage functionality and image transitions ... ACP to class12 <br/>
+* 8/8/2016 // debugged JS code and CSS code to enable functionality of transitions ... ACP to class12 and to class13 <br/> 
